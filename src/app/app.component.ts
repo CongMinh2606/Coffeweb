@@ -1,12 +1,45 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpService } from './services/http.service';
+import { Artical } from './models/modelbaidang';
+import {  onAuthStateChanged } from '@angular/fire/auth';
+import { AuthService } from './services/auth.service';
 
+import { state } from '@angular/animations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'CM Coffe';
+export class AppComponent implements  OnInit {
+  constructor(private HttpService:HttpService  ,private AuthService: AuthService){}
+  
+  // news$:any
+  // ngOnInit(): void {
+  //   // throw new Error('Method not implemented.');
+  //   this.news$ = this.HttpService.get();
+  // }
+  users: any;
+ 
+
+  ngOnInit(): void{
+    onAuthStateChanged(this.AuthService.auth,(users)=>{
+if( users != null){
+  this.users = users;
+}else{
+  this.users= !users;
+}
+    })
+  }
+  login(){
+    this.AuthService.loginWithGoogle().then((res) =>{
+      console.log(res)
+    })
+  }
+  logout(){
+    this.AuthService.logout();
+  }
+  
   Coffe:Array<any> = [
     {
       id: 1,
@@ -52,15 +85,21 @@ export class AppComponent {
       weight: "1/ly ",
       describe: "Ngọt/Đắng/Đậm vị cà phê",
       oder: false,
-    },
-    {
-      id: 6,
-      name: "Caramelmacchiato Nóng",
-      price: "10.000 VND",
-      image:"../assets/caramelmacchiato.webp",
-      weight: "1/ly ",
-      describe: "Ngọt/Đắng/Đậm vị cà phê",
-      oder: false,
-    },
-  ];
-}
+    },{
+    id: 6,
+    name: "Caramelmacchiato Nóng",
+    price: "10.000 VND",
+    image:"../assets/caramelmacchiato.webp",
+    weight: "1/ly ",
+    describe: "Ngọt/Đắng/Đậm vị cà phê",
+    oder: false,
+  },]
+
+  }
+    
+
+  // ];
+//  getnameinput(name : any){
+//   console.log(name)
+//  }
+

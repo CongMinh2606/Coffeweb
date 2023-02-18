@@ -5,30 +5,36 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatInputModule} from '@angular/material/input';
+
+import { ModuleshareModule } from './sharemodule/moduleshare/moduleshare.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
+ 
+  
+    
+  
   ],
   imports: [
-    BrowserModule,
+  
     AppRoutingModule,
+    BrowserModule,
+    ModuleshareModule,
+    HttpClientModule,
+    
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatChipsModule,
-    MatTabsModule,
-    MatInputModule
-
-    
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

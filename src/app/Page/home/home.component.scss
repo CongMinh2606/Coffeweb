@@ -1,0 +1,10 @@
+.Caphe{
+    display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .item_container{
+    margin-top: 20px;
+    height: 80px;
+  }
+  
