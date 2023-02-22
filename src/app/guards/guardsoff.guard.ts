@@ -16,21 +16,21 @@ export class GuardsoffGuard implements CanActivate, CanActivateChild {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+
       return new Promise ((resovle,reject) =>{
         onAuthStateChanged(this.AuthService.auth,(users)=>{
           if( users != null){
             resovle (true)
             this.AuthService.users = users;
           }else {
-            window.alert("CÚT")
+            window.alert("LOGIN PLEASE")
             resovle(false);
             this.AuthService.users != users;
             this.router.nagative(['home'])
-         
+
           }
-        
-          
+
+
       });
    });
   }
@@ -39,5 +39,5 @@ export class GuardsoffGuard implements CanActivate, CanActivateChild {
   //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
   //   return true;
   // }
-  
+
 }

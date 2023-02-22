@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -7,20 +8,16 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
-import { SaleComponent } from 'src/app/Component/sale/sale.component';
-import { ListComponent } from '../../Component/list/list.component';
 
-
+import { ToolbarComponent } from './../../Component/toolbar/toolbar.component';
+import { ItemComponent } from 'src/app/Component/item/item.component';
 @NgModule({
   declarations: [
-    ListComponent,
-    
-    
-    SaleComponent
+
   ],
   imports: [
     CommonModule,
-    
+
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -28,10 +25,8 @@ import { ListComponent } from '../../Component/list/list.component';
     MatChipsModule,
     MatTabsModule,
     MatInputModule
-  ], exports:[
-   
-    SaleComponent,
-    ListComponent,
+  ],
+  exports:[
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -39,6 +34,7 @@ import { ListComponent } from '../../Component/list/list.component';
     MatChipsModule,
     MatTabsModule,
     MatInputModule
+
   ]
 })
 export class ModuleshareModule { }

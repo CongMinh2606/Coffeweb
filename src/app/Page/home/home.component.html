@@ -1,9 +1,17 @@
-<!-- <h1>This is page home</h1>
-<button mat-raised-button  color="primary" style="margin-right: 40px; margin-right: -10px;" >Nhấn vô</button>
-<span class="example-spacer"></span> -->
-<div class="Caphe">
-    <app-sale [sale]="coffe" *ngFor="let coffe of Coffe"></app-sale>
+
+<div class="bottom">
+  <div  class="newout" *ngFor="let new of (this.new$|async)?.news">
+    <div class="title">
+      <h1>{{new.title}}</h1>
+    </div>
+
+    <img src="{{new.social_image}}" >
+    <p >{{new.id}}</p>
+  </div>
 </div>
-   
+
+
+
+
 
 

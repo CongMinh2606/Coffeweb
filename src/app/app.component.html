@@ -1,55 +1,7 @@
 <div class="top">
-<mat-toolbar style="background-color:rgb(226, 239, 156);  ">
-     
-        
-        <span style="font-size: 36px; margin-left: 70px;">CM Coffee</span>
-        <span class="example-spacer"></span>
-        <input  style="width: 30%;height: 50%; border: 1px solid rgb(198, 197, 197); border-radius: 6px;" > <mat-icon aria-hidden="false" aria-label="Example search icon" fontIcon="search" style="margin-left: -32px;"></mat-icon>
-
-        
-        <span class="example-spacer"></span>
-        <button mat-raised-button (click)="login()" *ngIf= "this.users" color="primary" style="margin-right: 40px; margin-right: -10px;" >Login</button>
-        <span class="example-spacer"></span>
-        <button mat-raised-button (click)="logout()" *ngIf= "this.users" color="primary" style="margin-right: 40px;">Logout</button>
-        <span class="example-spacer"></span>
-        <div *ngIf="this.users" id="name">{{this.users.displayName}}</div>
-        <img *ngIf="this.users" [src]="this.users.photoURL" style="height: 32px; border-radius: 80px; margin-right: 40px;">
-        <button mat-icon-button  [routerLink]="['home']" class="example-icon favorite-icon" aria-label="Example home icon">
-          <mat-icon>home</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon dashboard-icon" aria-label="Example home dashboard icon">
-          <mat-icon>dashboard</mat-icon>
-        </button>
-        <button mat-icon-button  [routerLink]="['cart']" class="example-icon" aria-label="Example icon-button with shopping icon">
-          <mat-icon >shopping_cart</mat-icon>
-        </button>
-       
-      </mat-toolbar>
-      <!-- <app-toolbar></app-toolbar> -->
-    
+  <app-toolbar></app-toolbar>
 </div>
-     
-<div class="bottom" style="background-color: #fff;">
-  <div class="Caphe" >
-    <!-- <mat-card class="item_container"  *ngFor="let coffe of Coffe">
-      <img mat-card-image src="{{coffe.image}}">
-      <mat-card-content id="info">
-        <br>
-        <p>Tên: {{coffe.name}}</p>
-        <p>Giá:{{coffe.price}} </p>
-        <p>Số Lượng: {{coffe.weight}}</p>
-        <p>mô tả: {{coffe.describe}}</p>
+<router-outlet></router-outlet>
 
-        <br>
-      </mat-card-content>
-      <mat-card-actions id="btn_container">
-        <button mat-button id="add_btn " >MUA</button>
-      </mat-card-actions>
-    </mat-card> -->
-  <app-list [drink]="coffe" *ngFor="let coffe of Coffe"></app-list>
-  </div>
-</div>
-<router-outlet></router-outlet> 
-    
-   
+
 
