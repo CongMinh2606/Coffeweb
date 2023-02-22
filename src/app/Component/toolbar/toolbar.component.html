@@ -15,11 +15,11 @@
 
             <span class="example-spacer"></span>
 
-            <div *ngIf="this.users" id="name" style="color: #fff;">{{this.users.displayName}}</div>
-            <img *ngIf="this.users" [src]="this.users.photoURL" style="height: 32px; border-radius: 80px; margin-right: 40px;">
-            <button mat-icon-button  routerLink="login" class="example-icon logout-icon" aria-label="Example logout icon">
+            <div *ngIf="this.users" id="name" style="color: #fff;">{{this.users?.displayName}}</div>
+            <img *ngIf="this.users" [src]="this.users?.photoURL" style="height: 32px; border-radius: 80px; margin-right: 40px;">
+            <!-- <button mat-icon-button  routerLink="login" class="example-icon logout-icon" aria-label="Example logout icon">
             <mat-icon>logout</mat-icon>
-            </button>
+            </button> -->
             <button mat-icon-button  routerLink="home" class="example-icon favorite-icon" aria-label="Example home icon">
               <mat-icon>home</mat-icon>
             </button>
